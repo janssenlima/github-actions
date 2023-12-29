@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       formato: json
-      par_moeda: ${{ secrets.moeda }}
+      par_moeda: ${{ secrets.moedas }}
     steps:
       - name: Cotacao moeda
         run: curl -s --url https://economia.awesomeapi.com.br/$formato/last/$par_moeda
