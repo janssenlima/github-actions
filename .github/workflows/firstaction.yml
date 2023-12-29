@@ -34,6 +34,15 @@ jobs:
           echo Actor: ${{ github.actor }}
           echo Committed By: ${{ github.event.commits[0].author.name }}
 
+  cotacao:
+    runs-on: ubuntu-latest
+    env:
+      formato: json
+      par_moeda: ${{ sectres.moeda }}
+    steps:
+      - name: Cotacao moeda
+        run: curl -s --url https://economia.awesomeapi.com.br/$formato/last/$par_moeda
+
   dump:
     runs-on: ubuntu-latest
     steps:
